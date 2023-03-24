@@ -47,7 +47,7 @@ class Pessoa(var nome: String, val dataDeNascimento: Date) : Movimentavel {
     fun moverVeiculoPara(identificar: String, x: Int, y: Int) {
         val veiculo = pesquisarVeiculo(identificar)
         if (!temCarta() && veiculo.requerCarta()) {
-            throw PessoaSemCartaException()
+            throw PessoaSemCartaException(this.nome)
         }
         veiculo.posicao.alterarPosicaoPara(x, y)
         moverPara(x,y)
@@ -73,8 +73,10 @@ class Pessoa(var nome: String, val dataDeNascimento: Date) : Movimentavel {
     fun tirarCarta() {
         if (calcularIdade() >= true) {
             this.carta = Carta()
+        }else{
+            throw MenorDeIdadeException()
         }
-        throw MenorDeIdadeException()
+
     }
 
     override fun toString(): String {
