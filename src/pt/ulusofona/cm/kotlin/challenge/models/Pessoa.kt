@@ -77,7 +77,6 @@ class Pessoa(var nome: String, val dataDeNascimento: Date) : Movimentavel {
             throw MenorDeIdadeException()
         }
 
-
     }
 
     override fun toString(): String {
