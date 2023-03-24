@@ -2,7 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 import pt.ulusofona.cm.kotlin.challenge.exception.AlterarPosicaoException
 
-class Posicao(private var x: Int, private var y: Int)  {
+class Posicao( var x: Int,  var y: Int)  {
 
 
     fun alterarPosicaoPara(x:Int,y: Int){
@@ -13,15 +13,9 @@ class Posicao(private var x: Int, private var y: Int)  {
         this.y=y
     }
 
-    fun getPosicaoX():Int{
-        return this.x
-    }
-    fun getPosicaoY():Int{
-        return this.y
-    }
 
     override fun toString(): String {
-        return "Posicao | x:${getPosicaoX()} | y:${getPosicaoY()}"
+        return "Posicao | x:$x | y:$y"
     }
 
 }

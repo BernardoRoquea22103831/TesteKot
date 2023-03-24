@@ -15,7 +15,7 @@ class Carro(override val identificador: String, motor: Motor) : Veiculo(identifi
     }
 
     override fun toString(): String {
-        return "Carro | ${identificador} |  | $dataDeAquisicao | $posicao"
+        return "Carro | ${identificador} |  | ${dataFormatada()} | $posicao"
     }
     fun dataFormatada() : String {
         val formato = SimpleDateFormat("dd-MM-yyyy")
