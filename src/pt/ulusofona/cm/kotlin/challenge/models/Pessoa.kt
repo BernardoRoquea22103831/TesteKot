@@ -5,6 +5,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
+import java.time.Instant
 import java.util.*
 
 
@@ -35,8 +36,8 @@ class Pessoa(var nome: String, val dataDeNascimento: Date) : Movimentavel {
 
         this.veiculos.remove(veiculo)
         comprador.veiculos.add(veiculo)
-
-
+        veiculo.dataDeAquisicao = Date.from(Instant.now())
+        comprador.veiculos.add(veiculo)
     }
 
     override fun moverPara(x: Int, y: Int) {
