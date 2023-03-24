@@ -7,7 +7,7 @@ class Bicicleta(override val identificador: String):Veiculo(identificador = Stri
     override var posicao:Posicao = Posicao(0,0)
 
     override fun requerCarta(): Boolean {
-        TODO("Not yet implemented")
+        return false
     }
 
     override fun moverPara(x: Int, y: Int) {

@@ -74,7 +74,7 @@ class Pessoa(var nome: String, val dataDeNascimento: Date) {
     }
 
     override fun toString(): String {
-        return "Pessoa | $nome | $dataDeNascimento | $posicao"
+        return "Pessoa | $nome | ${dataFormatada()} | $posicao"
     }
 
 
