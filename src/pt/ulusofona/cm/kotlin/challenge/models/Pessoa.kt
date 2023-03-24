@@ -1,7 +1,7 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
-import pt.ulusofona.cm.kotlin.challenge.exception.PessoaSemCartaException
-import pt.ulusofona.cm.kotlin.challenge.exception.VeiculoNaoEncontradoException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
+import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
 import java.text.SimpleDateFormat
 import java.util.*
 

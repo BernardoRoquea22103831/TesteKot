@@ -1,4 +1,4 @@
-package pt.ulusofona.cm.kotlin.challenge.exception
+package pt.ulusofona.cm.kotlin.challenge.exceptions
 
 class AlterarPosicaoException: Exception("Alterar a posição") {
 }
