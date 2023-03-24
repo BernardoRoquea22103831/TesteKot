@@ -1,4 +1,4 @@
 package pt.ulusofona.cm.kotlin.challenge.exceptions
 
-class PessoaSemCartaException(val nome:String):Exception("$nome Não tem carta") {
+class PessoaSemCartaException(val nome:String):Exception("$nome não tem carta para conduzir o veículo indicado") {
 }
