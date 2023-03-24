@@ -8,13 +8,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-
-class Pessoa(var nome: String, val dataDeNascimento: Date) : Movimentavel{
+class Pessoa(var nome: String, val dataDeNascimento: Date) : Movimentavel {
 
 
     val veiculos = mutableListOf<Veiculo>()
     var carta: Carta? = null
-    var posicao: Posicao = Posicao(0,0)
+    var posicao: Posicao = Posicao(0, 0)
 
 
     fun comprarVeiculo(veiculo: Veiculo) {
@@ -41,23 +40,20 @@ class Pessoa(var nome: String, val dataDeNascimento: Date) : Movimentavel{
     }
 
     override fun moverPara(x: Int, y: Int) {
-        this.posicao.alterarPosicaoPara(x,y)
+        this.posicao.alterarPosicaoPara(x, y)
     }
 
     fun moverVeiculoPara(identificar: String, x: Int, y: Int) {
         val veiculo = pesquisarVeiculo(identificar)
-
+        if (!temCarta() && veiculo.requerCarta()) {
+            throw PessoaSemCartaException()
+        }
         veiculo.posicao.alterarPosicaoPara(x, y)
-
-
+        moverPara(x,y)
     }
 
     fun temCarta(): Boolean {
-        if (this.carta == null) {
-            throw PessoaSemCartaException()
-        }
-
-        return true
+        return this.carta != null
     }
 
     fun calcularIdade(): Boolean {
@@ -66,14 +62,15 @@ class Pessoa(var nome: String, val dataDeNascimento: Date) : Movimentavel{
         val idadeEmAnos = idadeEmMiliseconds / 1000L / 60L / 60L / 24L / 365L
         return idadeEmAnos >= 18L
     }
-    fun dataFormatada() : String {
+
+    fun dataFormatada(): String {
         val formato = SimpleDateFormat("dd-MM-yyyy")
         val dataModificada = formato.format(dataDeNascimento)
         return dataModificada.toString()
     }
 
     fun tirarCarta() {
-        if (calcularIdade()>=true) {
+        if (calcularIdade() >= true) {
             this.carta = Carta()
         }
         throw MenorDeIdadeException()
